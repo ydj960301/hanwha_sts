@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- 나는 xml문서입니다. -->
+<!-- 루트엘리먼트이름이 mapper다 -->
+<!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.hanwha.emp"><!-- 무조건 이름은 mapper 위에서 그렇게 정햇으니까 -->
+ 	<select id="selectAll" resultType="com.hanwha.model.EmpVO">
+ 		select * from employees
+ 	</select>
+ 	
+ 	<select id="selectbyid" parameterType="int" resultType="com.hanwha.model.EmpVO"> <!-- 받을 파라미타가 하나이므로 아무이름 aa 해도됨/ -->
+ 		
+ 		select * from employees where employee_id=#{aa}
+ 	</select>
+ 	
+ 	<select id="selectalljob" resultType="String"> <!-- 받을 파라미타가 하나이므로 아무이름 aa 해도됨/ -->
+ 		
+ 		select * from jobs
+ 	</select>
+ 	
+ 	
+ 	
+ 	<insert id="insert" parameterType="com.hanwha.model.EmpVO"> <!-- 받을 파라미타가 하나이므로 아무이름 aa 해도됨/ -->
+ 		
+ 		insert into employees values(#{employee_id},#{first_name},#{last_name},#{email},#{phone_number},#{hire_date},#{job_id},#{salary},#{commission_pct},#{manager_id},#{department_id})
+ 		
+ 	</insert>
+ 	
+	 <update id="update" parameterType="com.hanwha.model.EmpVO">
+		update employees
+		set first_name=#{first_name}, 
+		last_name=#{last_name},  
+		email=#{email}, 
+		phone_number=#{phone_number}
+		where employee_id=#{employee_id}
+ 	
+ 	</update>
+ 	
+ 	<delete id="delete" parameterType="int">
+ 		delete from employees
+ 		where employee_id=#{bb}
+ 		
+ 	</delete>
+ 
+ </mapper>   
