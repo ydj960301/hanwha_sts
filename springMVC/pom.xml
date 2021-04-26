@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>1.3.2</version>
+			<version>2.7</version>
 		</dependency>
 
 		<dependency> <!-- oracle11은 중앙저장소에 없어서 다른 저장소에서 가져옴 -->
